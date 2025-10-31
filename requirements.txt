@@ -1,0 +1,30 @@
+# Core LangChain and LangGraph
+langchain
+langgraph
+langchain-core
+langchain-community
+langchain-text-splitters
+
+# Local LLM and Embeddings
+langchain-ollama
+
+# Vector Database
+qdrant-client
+langchain-qdrant
+
+# Data Source Loaders
+feedparser
+listparser
+newspaper3k==0.2.8
+praw
+tweepy
+beautifulsoup4
+lxml
+
+# Scheduling
+APScheduler
+
+# Utilities
+python-dotenv
+requests
+pydantic
