@@ -28,3 +28,6 @@ APScheduler
 python-dotenv
 requests
 pydantic
+
+# Model Context Protocol
+mcp
