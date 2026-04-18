@@ -13,7 +13,7 @@ class JobSearchRequest(BaseModel):
     query: str = Field(..., min_length=1, max_length=200, description="Search query")
     source: Optional[str] = Field(
         "reddit",
-        regex="^(reddit|hackernews|rss|linkedin|indeed)$",
+        pattern="^(reddit|hackernews|rss|linkedin|indeed)$",
         description="Job source"
     )
     limit: int = Field(10, ge=1, le=100, description="Max results")
@@ -32,7 +32,7 @@ class NotificationRequest(BaseModel):
     """Request body for sending notifications"""
     type: str = Field(
         ...,
-        regex="^(job_opportunity|qualified_lead|enrichment_complete|system_alert)$",
+        pattern="^(job_opportunity|qualified_lead|enrichment_complete|system_alert)$",
         description="Notification type"
     )
     title: str = Field(..., min_length=1, max_length=200, description="Notification title")
@@ -40,7 +40,7 @@ class NotificationRequest(BaseModel):
     details: Optional[Dict[str, Any]] = Field(None, description="Extra details")
     priority: Optional[str] = Field(
         "normal",
-        regex="^(low|normal|high|critical)$",
+        pattern="^(low|normal|high|critical)$",
         description="Priority level"
     )
     target_channels: Optional[List[str]] = Field(

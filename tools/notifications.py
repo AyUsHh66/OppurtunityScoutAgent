@@ -1,4 +1,4 @@
-"""
+                                                                                                                                                                                                                                                                                                                             """
 Production-grade notification system with queueing, templating, and deduplication
 Supports Discord, Email, Trello, and Notion
 """
