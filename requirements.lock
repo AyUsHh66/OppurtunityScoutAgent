@@ -1,0 +1,84 @@
+# Production-pinned versions for Business Agent 2.0
+# Generated: 2026-04-18
+# To regenerate: pip freeze > requirements.lock
+
+# ===== Core Framework =====
+fastapi==0.104.1
+uvicorn==0.24.0
+python-multipart==0.0.6
+
+# ===== LangChain and LLM =====
+langchain==0.1.4
+langgraph==0.0.1
+langchain-core==0.1.7
+langchain-community==0.0.5
+langchain-text-splitters==0.0.1
+langchain-ollama==0.0.1
+
+# ===== Vector Database =====
+qdrant-client==2.7.0
+langchain-qdrant==0.1.0
+
+# ===== Data Ingestion =====
+feedparser==6.0.10
+listparser==0.19
+newspaper3k==0.2.8
+praw==7.7.1
+tweepy==4.14.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+selenium==4.15.2
+
+# ===== Web & HTTP =====
+requests==2.31.0
+httpx==0.25.2
+aiohttp==3.9.1
+certifi==2023.7.22
+urllib3==2.1.0
+
+# ===== Configuration & Data Validation =====
+python-dotenv==1.0.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+pydantic-core==2.14.1
+
+# ===== Database & ORM =====
+sqlalchemy==2.0.23
+alembic==1.12.1
+psycopg2-binary==2.9.9
+
+# ===== Scheduling & Queuing =====
+APScheduler==3.10.4
+celery==5.3.4
+redis==5.0.1
+click==8.1.7
+kombu==5.3.4
+vine==5.1.0
+
+# ===== Async Support =====
+aiofiles==23.2.1
+asyncio-contextmanager==1.0.0
+
+# ===== Logging & Monitoring =====
+python-json-logger==2.0.7
+prometheus-client==0.18.0
+
+# ===== Email & Notifications =====
+pydantic-email==0.2.0
+
+# ===== Development & Testing =====
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+black==23.12.0
+flake8==6.1.0
+mypy==1.7.1
+isort==5.13.2
+
+# ===== Utilities =====
+python-jose==3.3.0
+passlib==1.7.4
+bcrypt==4.1.1
+cryptography==41.0.7
+pyyaml==6.0.1
