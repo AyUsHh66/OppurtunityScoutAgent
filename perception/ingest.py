@@ -66,7 +66,7 @@ def process_and_store_documents(documents: List):
         embedding=embeddings,
         url=os.getenv("QDRANT_URL"),
         collection_name=os.getenv("QDRANT_COLLECTION_NAME"),
-        force_recreate=False,
+        force_recreate=True,
     )
     
     print(f"Successfully added {len(chunked_docs)} chunks to the '{os.getenv('QDRANT_COLLECTION_NAME')}' collection.")

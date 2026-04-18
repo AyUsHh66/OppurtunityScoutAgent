@@ -1,33 +1,84 @@
-# Core LangChain and LangGraph
-langchain
-langgraph
-langchain-core
-langchain-community
-langchain-text-splitters
+# ===== Core LangChain and LangGraph =====
+langchain>=0.1.0
+langgraph>=0.0.1
+langchain-core>=0.1.0
+langchain-community>=0.0.1
+langchain-text-splitters>=0.0.1
 
-# Local LLM and Embeddings
-langchain-ollama
+# ===== Local LLM and Embeddings =====
+langchain-ollama>=0.0.1
 
-# Vector Database
-qdrant-client
-langchain-qdrant
+# ===== Vector Database =====
+qdrant-client>=2.7.0
+langchain-qdrant>=0.1.0
 
-# Data Source Loaders
-feedparser
-listparser
+# ===== Data Source Loaders & Scraping =====
+feedparser>=6.0.10
+listparser>=0.19
 newspaper3k==0.2.8
-praw
-tweepy
-beautifulsoup4
-lxml
+praw>=7.7.1
+tweepy>=4.14.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+selenium>=4.15.0  # For LinkedIn scraping
 
-# Scheduling
-APScheduler
+# ===== Web & API =====
+requests>=2.31.0
+httpx>=0.25.0
+aiohttp>=3.9.0  # For async HTTP
 
-# Utilities
-python-dotenv
-requests
-pydantic
+# ===== Configuration & Data =====
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
 
-# Model Context Protocol
-mcp
+# ===== Scheduling & Queuing =====
+APScheduler>=3.10.4
+celery>=5.3.0  # For distributed task queue
+redis>=5.0.0  # For queue backend
+
+# ===== Email & Notifications =====
+aiofiles>=23.2.0
+
+# ===== API & Web Framework =====
+fastapi>=0.104.0  # Production API server
+uvicorn>=0.24.0  # ASGI server
+python-multipart>=0.0.6
+
+# ===== Database =====
+sqlalchemy>=2.0.0  # For notification history
+alembic>=1.12.0  # For database migrations
+
+# ===== Monitoring & Logging =====
+python-json-logger>=2.0.7  # Structured logging
+prometheus-client>=0.19.0  # Metrics
+
+# ===== Testing =====
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+httpx>=0.25.0  # For testing APIs
+
+# ===== Code Quality =====
+black>=23.11.0
+flake8>=6.1.0
+mypy>=1.7.0
+isort>=5.12.0
+
+# ===== Utilities =====
+python-slugify>=8.0.0
+pytz>=2023.3
+
+# ===== Visualization and Graphing =====
+matplotlib>=3.8.0
+plotly>=5.17.0
+pandas>=2.1.0
+numpy>=1.26.0
+
+# ===== Model Context Protocol =====
+mcp>=0.0.1
+
+# ===== Development =====
+ipython>=8.17.0
+jupyter>=1.0.0
+notebook>=7.0.0

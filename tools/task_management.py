@@ -71,3 +71,39 @@ def send_discord_message(channel_id: str, message: str) -> str:
         return "Discord message sent successfully."
     except requests.exceptions.RequestException as e:
         return f"Failed to send Discord message: {e}"
+
+@tool
+def send_discord_embed(channel_id: str, embed_data: dict) -> str:
+    """Sends a rich embed message to Discord with detailed formatting."""
+    token = os.getenv("DISCORD_BOT_TOKEN")
+    if not token:
+        return "Discord bot token not set."
+
+    url = f"https://discord.com/api/v9/channels/{channel_id}/messages"
+    headers = {"Authorization": f"Bot {token}"}
+    data = {"embeds": [embed_data]}
+    
+    try:
+        response = requests.post(url, headers=headers, json=data)
+        response.raise_for_status()
+        return "Discord embed sent successfully."
+    except requests.exceptions.RequestException as e:
+        return f"Failed to send Discord embed: {e}"
+
+@tool
+def send_discord_embed(channel_id: str, embed_data: dict) -> str:
+    """Sends a rich embed message to Discord with detailed formatting."""
+    token = os.getenv("DISCORD_BOT_TOKEN")
+    if not token:
+        return "Discord bot token not set."
+
+    url = f"https://discord.com/api/v9/channels/{channel_id}/messages"
+    headers = {"Authorization": f"Bot {token}"}
+    data = {"embeds": [embed_data]}
+    
+    try:
+        response = requests.post(url, headers=headers, json=data)
+        response.raise_for_status()
+        return "Discord embed sent successfully."
+    except requests.exceptions.RequestException as e:
+        return f"Failed to send Discord embed: {e}"

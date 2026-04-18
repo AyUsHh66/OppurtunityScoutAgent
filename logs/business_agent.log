@@ -1,0 +1,20 @@
+2026-03-24 00:44:53 - tools.notifications - [NO_TRACE] - INFO - Notification channel registered: discord
+2026-03-24 00:44:53 - tools.notifications - [NO_TRACE] - INFO - Notification channel registered: trello
+2026-03-24 00:48:22 - tools.notifications - [NO_TRACE] - INFO - Notification channel registered: discord
+2026-03-24 00:48:22 - tools.notifications - [NO_TRACE] - INFO - Notification channel registered: trello
+2026-03-24 00:50:34 - app - [NO_TRACE] - INFO - Starting Business Agent 2.0 API Server
+2026-03-24 00:50:34 - app - [NO_TRACE] - INFO - Environment: development
+2026-03-24 00:50:34 - app - [NO_TRACE] - INFO - LLM Model: phi
+2026-03-24 00:51:03 - app - [NO_TRACE] - INFO - Starting Business Agent 2.0 API Server
+2026-03-24 00:51:03 - app - [NO_TRACE] - INFO - Environment: development
+2026-03-24 00:51:03 - app - [NO_TRACE] - INFO - LLM Model: phi
+2026-03-24 00:51:03 - app - [NO_TRACE] - INFO - API running on port 8000
+2026-03-24 00:51:07 - app - [NO_TRACE] - INFO - Shutting down API Server
+2026-03-24 00:51:08 - app - [NO_TRACE] - INFO - Starting Business Agent 2.0 API Server
+2026-03-24 00:51:08 - app - [NO_TRACE] - INFO - Environment: development
+2026-03-24 00:51:08 - app - [NO_TRACE] - INFO - LLM Model: phi
+2026-03-24 00:51:08 - app - [NO_TRACE] - INFO - API running on port 8000
+2026-03-24 00:51:17 - app - [NO_TRACE] - INFO - Starting Business Agent 2.0 API Server
+2026-03-24 00:51:17 - app - [NO_TRACE] - INFO - Environment: development
+2026-03-24 00:51:17 - app - [NO_TRACE] - INFO - LLM Model: phi
+2026-03-24 00:51:17 - app - [NO_TRACE] - INFO - API running on port 8000
