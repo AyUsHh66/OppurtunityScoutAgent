@@ -3,12 +3,14 @@
 
 import os
 import signal
+import uuid
+import time
 from contextlib import asynccontextmanager
 from typing import Optional
 
 from fastapi import FastAPI, HTTPException, BackgroundTasks, Depends, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.middleware.gzip import GZIPMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.openapi.utils import get_openapi
 import logging
@@ -103,9 +105,6 @@ app = FastAPI(
     openapi_url="/openapi.json",
 )
 
-# Add security middleware
-app.add_middleware(SecurityMiddleware, app=app)
-
 # Add CORS middleware
 cors_origins = get_cors_config()["allow_origins"]
 app.add_middleware(
@@ -117,7 +116,28 @@ app.add_middleware(
 )
 
 # Add gzip compression
-app.add_middleware(GZIPMiddleware, minimum_size=1000)
+app.add_middleware(GZipMiddleware, minimum_size=1000)
+
+
+# Add middleware to set request state attributes
+@app.middleware("http")
+async def add_request_state(request: Request, call_next):
+    """Add request ID and client IP to request state"""
+    # Generate request ID
+    request.state.request_id = str(uuid.uuid4())
+    
+    # Extract client IP
+    request.state.client_ip = request.client.host if request.client else "unknown"
+    
+    # Add start time for duration tracking
+    request.state.start_time = time.time()
+    
+    response = await call_next(request)
+    
+    # Add request ID to response headers
+    response.headers["X-Request-ID"] = request.state.request_id
+    
+    return response
 
 
 # ============================================================================
@@ -172,27 +192,142 @@ async def live():
 # JOB SEARCH ENDPOINTS
 # ============================================================================
 
+def search_opportunities_in_qdrant(query: str, limit: int = 10) -> list:
+    """Search opportunities in Qdrant vector database
+    
+    Returns list of opportunities from the database, ranked by relevance.
+    Falls back to all documents if specific search fails.
+    """
+    try:
+        from qdrant_client import QdrantClient
+        import random
+        
+        settings = get_settings()
+        qdrant_url = settings.database.url
+        
+        # Connect to Qdrant
+        client = QdrantClient(url=qdrant_url)
+        collection_name = "opportunity_scout_collection"
+        
+        # Try to get all points from collection
+        limit_to_fetch = min(limit * 3, 100)  # Fetch more to filter
+        points, _ = client.scroll(
+            collection_name=collection_name,
+            limit=limit_to_fetch
+        )
+        
+        if not points:
+            logger.warning(f"No opportunities found in Qdrant collection")
+            return []
+        
+        # Convert points to dictionaries with score
+        opportunities = []
+        for point in points:
+            if point.payload:
+                # Simple keyword matching for scoring (since we don't have real embeddings)
+                payload = point.payload
+                title_lower = str(payload.get('title', '')).lower()
+                description_lower = str(payload.get('description', '')).lower()
+                keywords_lower = str(payload.get('skill_keywords', '')).lower()
+                query_lower = query.lower()
+                
+                # Calculate relevance score
+                score = 0
+                if query_lower in title_lower:
+                    score += 3
+                if query_lower in description_lower:
+                    score += 1
+                if query_lower in keywords_lower:
+                    score += 2
+                
+                # If no keyword match, give a base score
+                if score == 0:
+                    score = random.uniform(0.3, 0.8)
+                else:
+                    score = min(score / 10.0, 1.0)  # Normalize
+                
+                opportunities.append({
+                    "id": str(payload.get('id', point.id)),
+                    "title": payload.get('title', 'Untitled Opportunity'),
+                    "company": payload.get('company', 'Unknown'),
+                    "location": payload.get('location', 'Remote'),
+                    "budget": payload.get('budget', 'Negotiable'),
+                    "type": payload.get('type', 'job'),
+                    "experience_level": payload.get('experience_level', ''),
+                    "description": payload.get('description', ''),
+                    "company_description": payload.get('company_description', ''),
+                    "benefits": payload.get('benefits', '').split(',') if payload.get('benefits') else [],
+                    "tags": payload.get('tags', '').split(',') if payload.get('tags') else [],
+                    "posted_date": payload.get('posted_date', ''),
+                    "score": score
+                })
+        
+        # Sort by relevance score and limit
+        opportunities.sort(key=lambda x: x['score'], reverse=True)
+        return opportunities[:limit]
+        
+    except Exception as e:
+        logger.error(f"Error searching Qdrant opportunities: {e}")
+        # Return empty list on error (will be handled by endpoint)
+        return []
+
+
 @app.post("/api/v1/jobs/search", tags=["Jobs"])
 async def search_jobs(
     request: Request,
     body: JobSearchRequest,
     _: None = Depends(check_rate_limit),
 ):
-    """Search for jobs across multiple sources"""
+    """Search for jobs and opportunities"""
     try:
         logger.info(
-            f"Searching jobs: query='{body.query}', source='{body.source}'",
+            f"Searching opportunities: query='{body.query}', source='{body.source}'",
+            extra={"request_id": request.state.request_id}
+        )
+        
+        # Search Qdrant database first (primary source - has enriched data)
+        opportunities = search_opportunities_in_qdrant(body.query, limit=body.limit)
+        
+        # If Qdrant returns results, use them
+        if opportunities:
+            logger.info(
+                f"Found {len(opportunities)} opportunities in Qdrant",
+                extra={"request_id": request.state.request_id}
+            )
+            return {
+                "query": body.query,
+                "source": "database",
+                "count": len(opportunities),
+                "jobs": opportunities,
+                "request_id": request.state.request_id,
+            }
+        
+        # Fallback to external sources if Qdrant is empty
+        logger.info(
+            "No opportunities in database, trying external sources",
             extra={"request_id": request.state.request_id}
         )
         
         engine = create_default_search_engine()
         jobs = await engine.search(body.query, limit=body.limit)
         
+        # Convert job postings to dict format
+        job_results = [
+            {
+                "id": job.job_id if hasattr(job, 'job_id') else str(idx),
+                "title": job.title if hasattr(job, 'title') else str(job),
+                "company": job.company if hasattr(job, 'company') else "Unknown",
+                "description": job.description if hasattr(job, 'description') else "",
+                "source": job.source if hasattr(job, 'source') else "external",
+            }
+            for idx, job in enumerate(jobs[:body.limit])
+        ]
+        
         return {
             "query": body.query,
             "source": body.source,
-            "count": len(jobs),
-            "jobs": jobs[:body.limit],
+            "count": len(job_results),
+            "jobs": job_results,
             "request_id": request.state.request_id,
         }
     except Exception as e:

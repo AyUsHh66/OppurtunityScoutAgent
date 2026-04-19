@@ -1,22 +1,134 @@
-2026-03-24 00:44:53 - tools.notifications - [NO_TRACE] - INFO - Notification channel registered: discord
-2026-03-24 00:44:53 - tools.notifications - [NO_TRACE] - INFO - Notification channel registered: trello
-2026-03-24 00:48:22 - tools.notifications - [NO_TRACE] - INFO - Notification channel registered: discord
-2026-03-24 00:48:22 - tools.notifications - [NO_TRACE] - INFO - Notification channel registered: trello
-2026-03-24 00:50:34 - app - [NO_TRACE] - INFO - Starting Business Agent 2.0 API Server
-2026-03-24 00:50:34 - app - [NO_TRACE] - INFO - Environment: development
-2026-03-24 00:50:34 - app - [NO_TRACE] - INFO - LLM Model: phi
-2026-03-24 00:51:03 - app - [NO_TRACE] - INFO - Starting Business Agent 2.0 API Server
-2026-03-24 00:51:03 - app - [NO_TRACE] - INFO - Environment: development
-2026-03-24 00:51:03 - app - [NO_TRACE] - INFO - LLM Model: phi
-2026-03-24 00:51:03 - app - [NO_TRACE] - INFO - API running on port 8000
-2026-03-24 00:51:07 - app - [NO_TRACE] - INFO - Shutting down API Server
-2026-03-24 00:51:08 - app - [NO_TRACE] - INFO - Starting Business Agent 2.0 API Server
-2026-03-24 00:51:08 - app - [NO_TRACE] - INFO - Environment: development
-2026-03-24 00:51:08 - app - [NO_TRACE] - INFO - LLM Model: phi
-2026-03-24 00:51:08 - app - [NO_TRACE] - INFO - API running on port 8000
-2026-03-24 00:51:17 - app - [NO_TRACE] - INFO - Starting Business Agent 2.0 API Server
-2026-03-24 00:51:17 - app - [NO_TRACE] - INFO - Environment: development
-2026-03-24 00:51:17 - app - [NO_TRACE] - INFO - LLM Model: phi
-2026-03-24 00:51:17 - app - [NO_TRACE] - INFO - API running on port 8000
-2026-04-18 20:19:38 - middleware.security - [NO_TRACE] - INFO - Admin key used
-2026-04-18 20:20:08 - middleware.security - [NO_TRACE] - INFO - Admin key used
+2026-04-18 22:12:48 - app_production - [NO_TRACE] - ERROR - Unhandled exception: SecurityMiddleware.__call__() takes 2 positional arguments but 4 were given
+2026-04-18 22:12:48 - app_production - [NO_TRACE] - ERROR - Unhandled exception: SecurityMiddleware.__call__() takes 2 positional arguments but 4 were given
+2026-04-18 22:14:05 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-18 22:14:05 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-18 22:14:05 - app_production - [NO_TRACE] - INFO - Environment: development
+2026-04-18 22:14:05 - app_production - [NO_TRACE] - INFO - Debug Mode: False
+2026-04-18 22:14:05 - app_production - [NO_TRACE] - INFO - LLM Model: phi
+2026-04-18 22:14:05 - app_production - [NO_TRACE] - INFO - Qdrant URL: http://localhost:6333
+2026-04-18 22:14:05 - app_production - [NO_TRACE] - INFO - API Server: 0.0.0.0:8000
+2026-04-18 22:14:05 - app_production - [NO_TRACE] - INFO - Validating critical services...
+2026-04-19 14:49:13 - middleware.security - [NO_TRACE] - INFO - Admin key used
+2026-04-19 14:49:24 - app_production - [NO_TRACE] - INFO - Received signal 2, initiating graceful shutdown...
+2026-04-19 14:50:14 - app_production - [NO_TRACE] - ERROR - Unhandled exception: 'State' object has no attribute 'client_ip'
+2026-04-19 14:50:44 - app_production - [NO_TRACE] - ERROR - Unhandled exception: 'State' object has no attribute 'client_ip'
+2026-04-19 14:53:54 - app_production - [NO_TRACE] - ERROR - Unhandled exception: 'State' object has no attribute 'client_ip'
+2026-04-19 14:55:31 - perception.job_search - [NO_TRACE] - INFO - Registered job source: rss
+2026-04-19 14:55:31 - perception.job_search - [NO_TRACE] - INFO - Registered job source: hackernews
+2026-04-19 14:55:31 - perception.job_search - [NO_TRACE] - INFO - Registered job source: reddit
+2026-04-19 14:55:31 - perception.job_search - [NO_TRACE] - INFO - Searching 3 sources for: Python
+2026-04-19 14:55:31 - RSSJobsSource - [NO_TRACE] - INFO - Searching RSS feeds for: Python
+2026-04-19 14:55:35 - perception.job_search - [NO_TRACE] - INFO - rss: found 0 jobs
+2026-04-19 14:55:35 - HackerNewsJobsSource - [NO_TRACE] - INFO - Searching HackerNews for: Python
+2026-04-19 14:55:36 - perception.job_search - [NO_TRACE] - INFO - hackernews: found 0 jobs
+2026-04-19 14:55:36 - RedditJobsSource - [NO_TRACE] - INFO - Searching Reddit for: Python
+2026-04-19 14:55:36 - perception.job_search - [NO_TRACE] - INFO - reddit: found 0 jobs
+2026-04-19 14:55:36 - perception.job_search - [NO_TRACE] - INFO - Total jobs found: 0
+2026-04-19 14:55:36 - perception.job_search - [NO_TRACE] - INFO - Deduplication: 0 -> 0 jobs
+2026-04-19 14:57:43 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 14:57:43 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 14:57:43 - app_production - [NO_TRACE] - INFO - Environment: development
+2026-04-19 14:57:43 - app_production - [NO_TRACE] - INFO - Debug Mode: False
+2026-04-19 14:57:43 - app_production - [NO_TRACE] - INFO - LLM Model: phi
+2026-04-19 14:57:43 - app_production - [NO_TRACE] - INFO - Qdrant URL: http://localhost:6333
+2026-04-19 14:57:43 - app_production - [NO_TRACE] - INFO - API Server: 0.0.0.0:8000
+2026-04-19 14:57:43 - app_production - [NO_TRACE] - INFO - Validating critical services...
+2026-04-19 14:58:37 - app_production - [NO_TRACE] - ERROR - Unhandled exception: 'State' object has no attribute 'client_ip'
+2026-04-19 14:59:25 - app_production - [NO_TRACE] - ERROR - Unhandled exception: 'State' object has no attribute 'client_ip'
+2026-04-19 15:00:22 - app_production - [NO_TRACE] - INFO - Received signal 2, initiating graceful shutdown...
+2026-04-19 15:01:08 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:01:08 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:01:08 - app_production - [NO_TRACE] - INFO - Environment: development
+2026-04-19 15:01:08 - app_production - [NO_TRACE] - INFO - Debug Mode: False
+2026-04-19 15:01:08 - app_production - [NO_TRACE] - INFO - LLM Model: phi
+2026-04-19 15:01:08 - app_production - [NO_TRACE] - INFO - Qdrant URL: http://localhost:6333
+2026-04-19 15:01:08 - app_production - [NO_TRACE] - INFO - API Server: 0.0.0.0:8000
+2026-04-19 15:01:08 - app_production - [NO_TRACE] - INFO - Validating critical services...
+2026-04-19 15:01:52 - app_production - [NO_TRACE] - ERROR - Unhandled exception: 'State' object has no attribute 'client_ip'
+2026-04-19 15:02:57 - app_production - [NO_TRACE] - INFO - Received signal 2, initiating graceful shutdown...
+2026-04-19 15:03:05 - app_production - [NO_TRACE] - INFO - Searching opportunities: query='Python', source='startup'
+2026-04-19 15:03:06 - app_production - [NO_TRACE] - INFO - Found 3 opportunities in Qdrant
+2026-04-19 15:03:15 - app_production - [NO_TRACE] - ERROR - Unhandled exception: 'State' object has no attribute 'client_ip'
+2026-04-19 15:03:35 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:03:35 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:03:35 - app_production - [NO_TRACE] - INFO - Environment: development
+2026-04-19 15:03:35 - app_production - [NO_TRACE] - INFO - Debug Mode: False
+2026-04-19 15:03:35 - app_production - [NO_TRACE] - INFO - LLM Model: phi
+2026-04-19 15:03:35 - app_production - [NO_TRACE] - INFO - Qdrant URL: http://localhost:6333
+2026-04-19 15:03:35 - app_production - [NO_TRACE] - INFO - API Server: 0.0.0.0:8000
+2026-04-19 15:03:35 - app_production - [NO_TRACE] - INFO - Validating critical services...
+2026-04-19 15:04:08 - app_production - [NO_TRACE] - ERROR - Unhandled exception: 'State' object has no attribute 'client_ip'
+2026-04-19 15:04:31 - app_production - [NO_TRACE] - ERROR - Unhandled exception: 'State' object has no attribute 'client_ip'
+2026-04-19 15:05:01 - app_production - [NO_TRACE] - INFO - Searching opportunities: query='Python', source='database'
+2026-04-19 15:05:03 - app_production - [NO_TRACE] - INFO - Found 3 opportunities in Qdrant
+2026-04-19 15:05:03 - app_production - [NO_TRACE] - INFO - Searching opportunities: query='Python', source='startup'
+2026-04-19 15:05:04 - app_production - [NO_TRACE] - INFO - Found 3 opportunities in Qdrant
+2026-04-19 15:05:25 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:05:26 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:05:26 - app_production - [NO_TRACE] - INFO - Environment: development
+2026-04-19 15:05:26 - app_production - [NO_TRACE] - INFO - Debug Mode: False
+2026-04-19 15:05:26 - app_production - [NO_TRACE] - INFO - LLM Model: phi
+2026-04-19 15:05:26 - app_production - [NO_TRACE] - INFO - Qdrant URL: http://localhost:6333
+2026-04-19 15:05:26 - app_production - [NO_TRACE] - INFO - API Server: 0.0.0.0:8000
+2026-04-19 15:05:26 - app_production - [NO_TRACE] - INFO - Validating critical services...
+2026-04-19 15:05:26 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:05:26 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:05:26 - app_production - [NO_TRACE] - INFO - Closing connections...
+2026-04-19 15:06:13 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:06:13 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:06:13 - app_production - [NO_TRACE] - INFO - Environment: development
+2026-04-19 15:06:13 - app_production - [NO_TRACE] - INFO - Debug Mode: False
+2026-04-19 15:06:13 - app_production - [NO_TRACE] - INFO - LLM Model: phi
+2026-04-19 15:06:13 - app_production - [NO_TRACE] - INFO - Qdrant URL: http://localhost:6333
+2026-04-19 15:06:13 - app_production - [NO_TRACE] - INFO - API Server: 0.0.0.0:8000
+2026-04-19 15:06:13 - app_production - [NO_TRACE] - INFO - Validating critical services...
+2026-04-19 15:06:49 - app_production - [NO_TRACE] - INFO - Searching opportunities: query='Python', source='startup'
+2026-04-19 15:06:51 - app_production - [NO_TRACE] - INFO - Found 3 opportunities in Qdrant
+2026-04-19 15:07:01 - middleware.security - [NO_TRACE] - INFO - Admin key used
+2026-04-19 15:08:44 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:08:44 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:08:44 - app_production - [NO_TRACE] - INFO - Environment: development
+2026-04-19 15:08:44 - app_production - [NO_TRACE] - INFO - Debug Mode: False
+2026-04-19 15:08:44 - app_production - [NO_TRACE] - INFO - LLM Model: phi
+2026-04-19 15:08:44 - app_production - [NO_TRACE] - INFO - Qdrant URL: http://localhost:6333
+2026-04-19 15:08:44 - app_production - [NO_TRACE] - INFO - API Server: 0.0.0.0:8000
+2026-04-19 15:08:44 - app_production - [NO_TRACE] - INFO - Validating critical services...
+2026-04-19 15:08:44 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:08:44 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:08:44 - app_production - [NO_TRACE] - INFO - Closing connections...
+2026-04-19 15:09:28 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:09:28 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:09:28 - app_production - [NO_TRACE] - INFO - Environment: development
+2026-04-19 15:09:28 - app_production - [NO_TRACE] - INFO - Debug Mode: False
+2026-04-19 15:09:28 - app_production - [NO_TRACE] - INFO - LLM Model: phi
+2026-04-19 15:09:28 - app_production - [NO_TRACE] - INFO - Qdrant URL: http://localhost:6333
+2026-04-19 15:09:28 - app_production - [NO_TRACE] - INFO - API Server: 0.0.0.0:8000
+2026-04-19 15:09:28 - app_production - [NO_TRACE] - INFO - Validating critical services...
+2026-04-19 15:10:08 - app_production - [NO_TRACE] - INFO - Searching opportunities: query='Python', source='startup'
+2026-04-19 15:10:10 - app_production - [NO_TRACE] - INFO - Found 3 opportunities in Qdrant
+2026-04-19 15:11:24 - app_production - [NO_TRACE] - INFO - Searching opportunities: query='string', source='database'
+2026-04-19 15:11:25 - app_production - [NO_TRACE] - INFO - Found 8 opportunities in Qdrant
+2026-04-19 15:22:24 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:22:24 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:22:24 - app_production - [NO_TRACE] - INFO - Environment: development
+2026-04-19 15:22:24 - app_production - [NO_TRACE] - INFO - Debug Mode: False
+2026-04-19 15:22:24 - app_production - [NO_TRACE] - INFO - LLM Model: phi
+2026-04-19 15:22:24 - app_production - [NO_TRACE] - INFO - Qdrant URL: http://localhost:6333
+2026-04-19 15:22:24 - app_production - [NO_TRACE] - INFO - API Server: 0.0.0.0:8000
+2026-04-19 15:22:24 - app_production - [NO_TRACE] - INFO - Validating critical services...
+2026-04-19 15:22:24 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:22:24 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:22:24 - app_production - [NO_TRACE] - INFO - Closing connections...
+2026-04-19 15:23:05 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:23:05 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:23:05 - app_production - [NO_TRACE] - INFO - Environment: development
+2026-04-19 15:23:05 - app_production - [NO_TRACE] - INFO - Debug Mode: False
+2026-04-19 15:23:05 - app_production - [NO_TRACE] - INFO - LLM Model: phi
+2026-04-19 15:23:05 - app_production - [NO_TRACE] - INFO - Qdrant URL: http://localhost:6333
+2026-04-19 15:23:05 - app_production - [NO_TRACE] - INFO - API Server: 0.0.0.0:8000
+2026-04-19 15:23:05 - app_production - [NO_TRACE] - INFO - Validating critical services...
+2026-04-19 15:23:05 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:23:05 - app_production - [NO_TRACE] - INFO - ================================================================================
+2026-04-19 15:23:05 - app_production - [NO_TRACE] - INFO - Closing connections...
+2026-04-19 15:23:50 - app_production - [NO_TRACE] - INFO - Searching opportunities: query='Python', source='startup'
+2026-04-19 15:23:50 - app_production - [NO_TRACE] - INFO - Found 5 opportunities in Qdrant

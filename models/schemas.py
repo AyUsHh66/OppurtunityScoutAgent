@@ -12,8 +12,8 @@ class JobSearchRequest(BaseModel):
     """Request body for job search"""
     query: str = Field(..., min_length=1, max_length=200, description="Search query")
     source: Optional[str] = Field(
-        "reddit",
-        pattern="^(reddit|hackernews|rss|linkedin|indeed)$",
+        "database",
+        pattern="^(reddit|hackernews|rss|linkedin|indeed|database|startup|external)$",
         description="Job source"
     )
     limit: int = Field(10, ge=1, le=100, description="Max results")
@@ -22,7 +22,7 @@ class JobSearchRequest(BaseModel):
     class Config:
         example = {
             "query": "Python developer",
-            "source": "reddit",
+            "source": "database",
             "limit": 10,
             "location": "Remote"
         }
